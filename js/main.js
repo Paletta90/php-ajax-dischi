@@ -1,33 +1,44 @@
 var app = new Vue({
     el: '#app',
 
-    data:{
+    data: {
         disks: [],
-        generi: ['rock', 'pop', 'jazz', 'metal'],
+        generi: ['Rock', 'Pop', 'Jazz', 'Metal'],
         genre: ''
     },
-    method:{
-        filterGenre: function(){
-            // axios.get( 'http://localhost/php-ajax-dischi/Api/disks.php' )
-            // .then( (res) => {
+    methods: {
+        filterGenre: function () {
+            
+            if(this.genre == null){
+                this.disks = [];
+
+                axios.get( 'http://localhost/php-ajax-dischi/Api/disks.php' ) 
+                    .then( (res) => {
+                        
+                        this.disks = res.data;
+
+                    })
+
+            }else{
+                this.disks = [];
+                axios.get( 'http://localhost/php-ajax-dischi/Api/disks.php' ) 
+                    .then( (res) => {
+                        
+                        this.disks = res.data.filter( (elem) => {
+                            return elem.genre == this.genre;
+                        });
+
+                    })
                 
-            //     this.disks = res.data;
+            }
 
-            //     this.disks.forEach(elem => {
-            //         if(elem.genre == this.genre){
-            //             this.disks.push(elem);
-            //         }
-            //     });
-
-            // })
-            console.log('ciao')
         },
 
     },
-    created(){
-        axios.get( 'http://localhost/php-ajax-dischi/Api/disks.php' )
-            .then( (res) => {
-                this.disks = res.data;
+    created() {
+        axios.get('http://localhost/php-ajax-dischi/Api/disks.php')
+            .then((res) => {
+                this.disks = res.data
             })
     },
 

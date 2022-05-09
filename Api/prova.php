@@ -1,6 +1,6 @@
 <?php
 
-    $database = [
+    $disks = [
         [
             'title' => 'New Jersey',
             'author' => 'Bon Jovi',
@@ -45,8 +45,8 @@
         ]
     ];
 
-    // header('Content-Type: application/json');
+    header('Content-Type: application/json');
 
-    // echo json_encode($database);
+    echo json_encode($disks);
 
 ?>

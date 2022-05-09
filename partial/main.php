@@ -26,4 +26,7 @@
 
     </div>
 
+    <!-- Prova per capire se il file.js è stato importato correttamente -->
+    <div v-for="elem in array">{{elem}}</div>
+
 </main>

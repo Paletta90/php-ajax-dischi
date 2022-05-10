@@ -3,12 +3,13 @@ var app = new Vue({
 
     data: {
         disks: [],
-        generi: ['Rock', 'Pop', 'Jazz', 'Metal'],
+        generi: [],
         genre: ''
     },
     methods: {
-        filterGenre: function () {
+        filterGenre: function() {
             
+            // Se ritorno sulla option 'Choose the genre' ricarico l'array
             if(this.genre == null){
                 this.disks = [];
 
@@ -19,6 +20,7 @@ var app = new Vue({
 
                     })
 
+            // Filtro l'array in base al genere selezionato
             }else{
                 this.disks = [];
                 axios.get( 'http://localhost/php-ajax-dischi/Api/disks.php' ) 
@@ -38,7 +40,20 @@ var app = new Vue({
     created() {
         axios.get('http://localhost/php-ajax-dischi/Api/disks.php')
             .then((res) => {
-                this.disks = res.data
+
+                // Riempio l'array con una chiamata Api
+                this.disks = res.data;
+
+                // Riempio un array con i vari generi
+                this.disk.forEach( (elem) => {
+                    
+                    // Se non include già il genere pusho
+                    if( !this.generi.include( elem.genre ) ){
+                        this.generi.push(elem.genre)
+                    }
+
+                });
+
             })
     },
 

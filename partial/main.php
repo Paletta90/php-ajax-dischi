@@ -12,7 +12,7 @@
             <?php foreach( $database as $disk ) { ?>
             <div class="col d-flex text-center g-3">
 
-                <div class="bg-card p-3">
+                <div class="bg-card w-100 p-3">
 
                     <img src="<?php echo $disk['poster'] ?>" alt="" class="img-fluid mb-3">
                     <h5 class="text-white fw-bold mb-3"><?php echo $disk['title'] ?></h5>
@@ -27,13 +27,13 @@
 
         </div>
 
-        <!-- Chiamata tramite axios -->
+        <!-- Chiamata Api -->
         <h1 class="text-white mt-5">Dischi utilizzando axios e vue</h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
 
             <div v-for="(elem, index) in disks" class="col d-flex text-center g-3">
 
-                <div class="bg-card p-3">
+                <div class="bg-card w-100 p-3">
 
                     <img :src="elem.poster" alt="" class="img-fluid mb-3">
                     <h5 class="text-white fw-bold mb-3">{{elem.title}}</h5>

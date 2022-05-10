@@ -48,7 +48,7 @@ var app = new Vue({
                 this.disks.forEach( (elem) => {
                     
                     // Se non include già il genere pusho
-                    if( !this.generi.include( elem.genre ) ){
+                    if( !this.generi.includes( elem.genre ) ){
                         this.generi.push(elem.genre)
                     }
 

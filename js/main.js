@@ -43,9 +43,9 @@ var app = new Vue({
 
                 // Riempio l'array con una chiamata Api
                 this.disks = res.data;
-
+                
                 // Riempio un array con i vari generi
-                this.disk.forEach( (elem) => {
+                this.disks.forEach( (elem) => {
                     
                     // Se non include già il genere pusho
                     if( !this.generi.include( elem.genre ) ){
@@ -53,6 +53,7 @@ var app = new Vue({
                     }
 
                 });
+                // console.log(this.disks);
 
             })
     },
